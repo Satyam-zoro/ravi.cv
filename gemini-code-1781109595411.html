@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Curriculum Vitae | Ravi Ranjan Kumar</title>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Fraunces:ital,opsz,wght@0,9..144,600;0,9..144,700;1,9..144,600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-main: #090a0f;
+            --surface-card: #12131a;
+            --accent-purple: #9932cc;
+            --accent-purple-glow: rgba(153, 50, 204, 0.15);
+            --border-subtle: rgba(255, 255, 255, 0.05);
+            --text-primary: #f1f5f9;
+            --text-secondary: #94a3b8;
+            --text-dark: #0f172a;
+            --military-gold: #d4af37;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-main);
+            color: var(--text-primary);
+            line-height: 1.6;
+            padding: 40px 5%;
+        }
+
+        .cv-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 350px 1fr;
+            gap: 40px;
+            background: var(--surface-card);
+            border: 1px solid var(--border-subtle);
+            border-radius: 24px;
+            overflow: hidden;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+        }
+
+        /* --- LEFT SIDEBAR --- */
+        .sidebar {
+            background: #161722;
+            padding: 40px 30px;
+            border-right: 1px solid var(--border-subtle);
+        }
+
+        .profile-frame {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .profile-img {
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid var(--accent-purple);
+            box-shadow: 0 0 20px var(--accent-purple-glow);
+        }
+
+        .sidebar-heading {
+            font-family: 'Fraunces', serif;
+            font-size: 1.2rem;
+            color: var(--text-primary);
+            margin: 30px 0 15px 0;
+            padding-bottom: 8px;
+            border-bottom: 1px solid var(--border-subtle);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .contact-item {
+            margin-bottom: 12px;
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+
+        .contact-item strong {
+            color: var(--text-primary);
+            display: block;
+        }
+
+        .skill-tag-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .skill-tag {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid var(--border-subtle);
+            color: var(--text-secondary);
+            padding: 6px 12px;
+            border-radius: 8px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            transition: 0.2s;
+        }
+
+        .skill-tag:hover {
+            border-color: var(--accent-purple);
+            color: var(--text-primary);
+            background: var(--accent-purple-glow);
+        }
+
+        .award-card {
+            background: rgba(212, 175, 55, 0.03);
+            border-left: 2px solid var(--military-gold);
+            padding: 10px 14px;
+            margin-bottom: 12px;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .award-title {
+            font-size: 0.85rem;
+            font-weight: 700;
+            color: var(--text-primary);
+        }
+
+        .award-date {
+            font-size: 0.75rem;
+            color: var(--military-gold);
+            font-weight: 600;
+        }
+
+        /* --- MAIN CONTENT --- */
+        .main-content {
+            padding: 50px 40px;
+        }
+
+        .header-title h1 {
+            font-family: 'Fraunces', serif;
+            font-size: 3rem;
+            line-height: 1.1;
+            margin-bottom: 6px;
+            letter-spacing: -0.02em;
+        }
+
+        .header-title .subtitle {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--accent-purple);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 24px;
+        }
+
+        .section-block {
+            margin-bottom: 45px;
+        }
+
+        .section-title {
+            font-family: 'Fraunces', serif;
+            font-size: 1.6rem;
+            margin-bottom: 20px;
+            color: var(--text-primary);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .section-title::after {
+            content: '';
+            height: 1px;
+            flex: 1;
+            background: linear-gradient(90deg, var(--border-subtle), transparent);
+        }
+
+        .objective-text {
+            color: var(--text-secondary);
+            font-size: 1.05rem;
+            text-align: justify;
+        }
+
+        /* Timeline / Experience Layout */
+        .timeline {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+            position: relative;
+        }
+
+        .timeline-item {
+            position: relative;
+            padding-left: 24px;
+            border-left: 1px solid var(--border-subtle);
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -5px;
+            top: 8px;
+            width: 9px;
+            height: 9px;
+            border-radius: 50%;
+            background: var(--accent-purple);
+        }
+
+        .timeline-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 6px;
+        }
+
+        .role-title {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--text-primary);
+        }
+
+        .unit-location {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            font-weight: 500;
+        }
+
+        .duration {
+            font-size: 0.85rem;
+            background: rgba(255, 255, 255, 0.05);
+            padding: 4px 12px;
+            border-radius: 30px;
+            color: var(--text-primary);
+            font-weight: 600;
+            white-space: nowrap;
+        }
+
+        /* Matrix Grids */
+        .grid-2col {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 16px;
+        }
+
+        .competency-box {
+            background: rgba(255, 255, 255, 0.01);
+            border: 1px solid var(--border-subtle);
+            padding: 16px;
+            border-radius: 12px;
+        }
+
+        .competency-box h4 {
+            font-size: 0.95rem;
+            color: var(--text-primary);
+            margin-bottom: 8px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .competency-box p {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+        }
+
+        .edu-card {
+            margin-bottom: 16px;
+        }
+
+        .edu-degree {
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--text-primary);
+        }
+
+        .edu-meta {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+        }
+
+        /* --- RESPONSIVE ADJUSTMENTS --- */
+        @media (max-width: 960px) {
+            .cv-container {
+                grid-template-columns: 1fr;
+            }
+            .sidebar {
+                border-right: none;
+                border-bottom: 1px solid var(--border-subtle);
+            }
+            .timeline-header {
+                flex-direction: column;
+                gap: 4px;
+            }
+            .grid-2col {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="cv-container">
+        
+        <aside class="sidebar">
+            <div class="profile-frame">
+                <img src="f1fa9d34-4881-4d02-8961-d1aa8fb78822.png" alt="Ravi Ranjan Kumar" class="profile-img">
+            </div>
+
+            <h3 class="sidebar-heading">Personal Dossier</h3>
+            <div class="contact-item"><strong>Phone Contact</strong>+91 9971319129</div>
+            <div class="contact-item"><strong>Secure Email</strong>bkc377785n@gmail.com</div>
+            <div class="contact-item"><strong>Date of Birth</strong>15 September 1976</div>
+            <div class="contact-item"><strong>Residential Address</strong>H No A66, Shree Manohar Dham Colony, Itoura, Gwalior Road, Agra, UP - 282009</div>
+
+            <h3 class="sidebar-heading">Military Honors</h3>
+            <div class="award-card">
+                <div class="award-title">COAS Appreciation Letter</div>
+                <div class="award-date">May 2025</div>
+            </div>
+            <div class="award-card">
+                <div class="award-title">GOC-in-C Command Commendation</div>
+                <div class="award-date">March 2021</div>
+            </div>
+            <div class="award-card">
+                <div class="award-title">VCOAS Commendation Card</div>
+                <div class="award-date">January 2017</div>
+            </div>
+            <div class="award-card">
+                <div class="award-title">Min of Defence Commendation</div>
+                <div class="award-date">June 2013</div>
+            </div>
+
+            <h3 class="sidebar-heading">Core Strengths</h3>
+            <div class="skill-tag-group">
+                <span class="skill-tag">Strategic Leadership</span>
+                <span class="skill-tag">Analytical Thinking</span>
+                <span class="skill-tag">Crisis Management</span>
+                <span class="skill-tag">Self-Motivated</span>
+                <span class="skill-tag">High Adaptability</span>
+            </div>
+
+            <h3 class="sidebar-heading">Languages</h3>
+            <div class="contact-item">English, Hindi</div>
+        </aside>
+
+        <main class="main-content">
+            <header class="header-title">
+                <h1>Ravi Ranjan Kumar</h1>
+                <div class="subtitle">Subedar | Junior Network Engineer — Ex-Serviceman</div>
+            </header>
+
+            <section class="section-block">
+                <h2 class="section-title">Professional Profile</h2>
+                <p class="objective-text">
+                    A highly disciplined, versatile, and innovative professional offering over 30 years of elite leadership and engineering experience in telecommunication architectural frameworks, electronic warfare platforms, and enterprise computer networking frameworks within the Indian Army (Corps of Signals). Proven executive record directing technology deployments, hardening secure networks, and managing high-capacity manpower structures of up to 250 personnel under high-pressure scenarios. Eager to act as a force multiplier for a progressive corporate framework.
+                </p>
+            </section>
+
+            <section class="section-block">
+                <h2 class="section-title">Command & Engineering History</h2>
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-header">
+                            <div>
+                                <div class="role-title">JCO I/C System Control / Admin Sub Maj</div>
+                                <div class="unit-location">Eastern Command Signal Regt — Kolkata</div>
+                            </div>
+                            <span class="duration">Oct 2023 - May 2025</span>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-header">
+                            <div>
+                                <div class="role-title">JCO I/C ASCON Zonal Center & RNOC NFS</div>
+                                <div class="unit-location">591 Sub Group — Jammu</div>
+                            </div>
+                            <span class="duration">Nov 2022 - Oct 2023</span>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-header">
+                            <div>
+                                <div class="role-title">JCO I/C System Control / Admin Sub Maj</div>
+                                <div class="unit-location">14 Corps Engineering Signal Regt — Leh</div>
+                            </div>
+                            <span class="duration">Jun 2021 - Nov 2022</span>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-header">
+                            <div>
+                                <div class="role-title">JCO I/C IT Cell & EW System Platforms</div>
+                                <div class="unit-location">2 EW Battalion — Bhatinda</div>
+                            </div>
+                            <span class="duration">Jul 2018 - Jun 2021</span>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-header">
+                            <div>
+                                <div class="role-title">JCO I/C IT Cell & TST Systems</div>
+                                <div class="unit-location">HQ 14 Signal Group — Naogaon / Delhi</div>
+                            </div>
+                            <span class="duration">Nov 2014 - Jul 2018</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="section-block">
+                <h2 class="section-title">Technical Matrix & Competencies</h2>
+                <div class="grid-2col">
+                    <div class="competency-box">
+                        <h4>Cyber Security & IT Networks</h4>
+                        <p>Hardening architecture across enterprise switches, client workstations, and systems. Active configuration of firewalls, policy implementation, and real-time LAN/WAN/IP-MPLS routing optimization.</p>
+                    </div>
+                    <div class="competency-box">
+                        <h4>Telecommunications & Switching</h4>
+                        <p>Expertise operating server-grade digital exchanges (Alcatel, Siemens HIPATH, Karel, Coral, Matrix). Advanced knowledge of DWDM interfaces, multiplexing protocols, OLTE, and satellite subsystems (VSAT, TST).</p>
+                    </div>
+                    <div class="competency-box">
+                        <h4>Electronic Warfare Architecture</h4>
+                        <p>Comprehensive knowledge deploying, intercepting, and managing Direction Finder arrays, secure control stations, and strategic jamming communications equipment.</p>
+                    </div>
+                    <div class="competency-box">
+                        <h4>Operations & Administration</h4>
+                        <p>Orchestration of complex operational rosters, unit logistical readiness planning, multi-sector security details, and leading compliance audits for military equipment.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="section-block">
+                <h2 class="section-title">Education & Credentials</h2>
+                <div class="edu-card">
+                    <div class="edu-degree">Polytechnic Diploma in Electronics & Telecommunication Engineering</div>
+                    <div class="edu-meta">Military College of Telecommunication Engineering (MCTE), Mhow | 2006 (First Class)</div>
+                </div>
+                <div class="edu-card">
+                    <div class="edu-degree">Bachelor of Arts (B.A.)</div>
+                    <div class="edu-meta">Dr. Bhimrao Ambedkar University, Agra | 2018</div>
+                </div>
+                <div class="edu-card">
+                    <div class="edu-degree">Specialized Military Credentials</div>
+                    <div class="edu-meta">Trade Proficiency Certificate - Network Engineer JE(NE) (2025) • ATM/ISDN ASCON O&M Protocol Certification • Internal Quality Auditor (DIQA Bangalore) • Advanced Diploma in Leadership (LBSIMT)</div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+</body>
+</html>
